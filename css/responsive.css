@@ -1,0 +1,68 @@
+/* Responsive.css — breakpoint overrides */
+
+/* ===== 1024px Laptop ===== */
+@media (max-width: 1023px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { order: -1; margin-bottom: var(--space-4); }
+  .network-viz-container { max-width: 380px; margin: 0 auto; }
+}
+
+/* ===== 768px Tablet ===== */
+@media (max-width: 767px) {
+  .section { padding: var(--space-8) 0; }
+  .section-title { font-size: 1.5rem; }
+  .hero { min-height: auto; padding-top: 100px; padding-bottom: var(--space-6); }
+  .hero-name { font-size: 1.5rem; }
+  .hero-titles { flex-direction: column; align-items: flex-start; gap: var(--space-1); }
+  .hero-title-sep { display: none; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions .btn { width: 100%; }
+  .about-stats { grid-template-columns: 1fr; gap: var(--space-2); }
+  .about-stat { padding: var(--space-3); }
+  .skills-map { grid-template-columns: 1fr; }
+  .projects-network { grid-template-columns: 1fr; }
+  .ts-diagram { grid-template-columns: 1fr; }
+  .ts-flow { flex-direction: column; }
+  .ts-flow-arrow { transform: rotate(90deg); }
+  .contact-cards { grid-template-columns: 1fr; }
+  .contact-visual { flex-wrap: wrap; font-size: 0.75rem; }
+  .hero-keywords { gap: var(--space-2) var(--space-3); }
+  .hero-keywords span { font-size: 0.625rem; }
+  .network-viz-container { max-width: 320px; }
+  .timeline::before { left: 12px; }
+  [dir="rtl"] .timeline::before { right: 12px; }
+  .timeline-item { padding-inline-start: var(--space-6); }
+  .timeline-item::before { left: 5px; }
+  [dir="rtl"] .timeline-item::before { right: 5px; }
+  .footer-brand { flex-direction: column; gap: var(--space-2); }
+}
+
+/* ===== 390px Mobile ===== */
+@media (max-width: 430px) {
+  .container { padding: 0 var(--space-3); }
+  .section-title { font-size: 1.25rem; }
+  .hero-name { font-size: 1.25rem; }
+  .hero-summary { font-size: 0.875rem; }
+  .skill-group { padding: var(--space-4); }
+  .timeline-card { padding: var(--space-4); }
+  .project-node { padding: var(--space-4); }
+  .edu-card { padding: var(--space-4); gap: var(--space-3); }
+  .edu-icon { width: 40px; height: 40px; }
+  .noc-terminal-body { font-size: 0.6875rem; min-height: 100px; }
+  .status-panel { padding: var(--space-3); }
+  .status-list li { font-size: 0.6875rem; }
+  .nav-logo-text { display: none; }
+  .hero-keywords { display: none; }
+  .contact-visual { display: none; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .topology-link { animation: none; }
+  .topology-packet { display: none; }
+  .node-halo { animation: none; opacity: 0.3; }
+  .status-dot::after { animation: none; }
+  .noc-cursor { animation: none; }
+}

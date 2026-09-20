@@ -1,0 +1,169 @@
+{
+  "identity": {
+    "name": {
+      "en": "Moatasem Tareq Mohammed Hashem",
+      "ar": "معتصم طارق محمد هاشم"
+    },
+    "headline": {
+      "en": "Network Engineer",
+      "ar": "مهندس شبكات"
+    },
+    "secondaryTitle": {
+      "en": "Technical Support Engineer",
+      "ar": "مهندس دعم فني"
+    },
+    "tagline": {
+      "en": "Network Engineering · Network Security · Technical Support",
+      "ar": "هندسة الشبكات · أمن الشبكات · الدعم الفني"
+    },
+    "summary": {
+      "en": "Results-driven Technical Support Specialist and detail-oriented Network Engineer with 3 years of experience delivering Tier 1–3 support in fast-paced IT environments. Skilled in troubleshooting hardware, software, and network issues, managing service requests, and ensuring high customer satisfaction through effective communication and problem-solving.",
+      "ar": "أخصائي دعم فني ومهندس شبكات يهتم بالتفاصيل، ولديه خبرة مهنية لمدة 3 سنوات في تقديم دعم من المستوى الأول إلى الثالث ضمن بيئات تقنية سريعة. أمتلك خبرة في استكشاف أعطال الأجهزة والبرمجيات والشبكات، وإدارة طلبات الخدمة، وتحسين رضا المستخدمين من خلال التواصل الفعال وحل المشكلات."
+    },
+    "location": { 
+      "en": "Sana'a, Yemen", 
+      "ar": "صنعاء، اليمن" 
+    }
+  },
+  "contact": {
+    "phone": "+967 771 357 631",
+    "email": "moatasem.almasani@gmail.com",
+    "linkedin": "https://linkedin.com/in/moatasem-almasani-66b274234",
+    "github": "https://github.com/moatasem-almasani"
+  },
+  "education": [
+    {
+      "degree": { 
+        "en": "Bachelor's Degree, Information Technology — Excellent with Honor", 
+        "ar": "بكالوريوس تقنية المعلومات — ممتاز مع مرتبة الشرف" 
+      },
+      "institution": { 
+        "en": "University of Science and Technology", 
+        "ar": "جامعة العلوم والتكنولوجيا" 
+      },
+      "location": { 
+        "en": "Sana'a, Yemen", 
+        "ar": "صنعاء، اليمن" 
+      },
+      "date": "2019 – 2023"
+    },
+    {
+      "degree": { 
+        "en": "Diploma, Secretarial and Business Correspondence", 
+        "ar": "دبلوم السكرتارية والمراسلات التجارية" 
+      },
+      "institution": { 
+        "en": "Ideal Modern Institute", 
+        "ar": "المعهد المثالي الحديث" 
+      },
+      "location": { 
+        "en": "Taiz, Yemen", 
+        "ar": "تعز، اليمن" 
+      },
+      "date": "Sep 2018 – Sep 2019"
+    },
+    {
+      "degree": { 
+        "en": "Diploma, English Language", 
+        "ar": "دبلوم اللغة الإنجليزية" 
+      },
+      "institution": { 
+        "en": "Ideal Modern Institute", 
+        "ar": "المعهد المثالي الحديث" 
+      },
+      "location": { 
+        "en": "Taiz, Yemen", 
+        "ar": "تعز، اليمن" 
+      },
+      "date": "Sep 2017 – Sep 2018"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "PMP — Planning and Project Control Essential",
+      "issuer": "Coursera",
+      "date": "July 2026"
+    },
+    {
+      "title": "ITIL Foundation v4",
+      "issuer": "Institute of Banking Studies",
+      "date": "November 2025"
+    },
+    {
+      "title": "Ethical Hacking Essentials",
+      "issuer": "Coursera",
+      "date": "September 2025"
+    },
+    {
+      "title": "FortiGate Administrator",
+      "issuer": "Coursera",
+      "date": "September 2025"
+    },
+    {
+      "title": "Introduction to Microsoft Azure Services",
+      "issuer": "Coursera",
+      "date": "January 2025"
+    },
+    {
+      "title": "IBM IT Scrum Master Diploma",
+      "issuer": "IBM via Coursera",
+      "date": "April 2024"
+    },
+    {
+      "title": "Google IT Support Professional Certificate",
+      "issuer": "Google",
+      "date": "December 2023"
+    },
+    {
+      "title": "FCA — Fortinet Certified Associate",
+      "issuer": "Fortinet",
+      "date": "November 2023"
+    },
+    {
+      "title": "FCF — Fortinet Certified Fundamentals",
+      "issuer": "Fortinet",
+      "date": "October 2023"
+    },
+    {
+      "title": "CCNA — Cisco Certified Network Associate",
+      "issuer": "Cisco Networking Academy",
+      "date": "April 2023"
+    },
+    {
+      "title": "MCSA — Microsoft Certified Solutions Associate",
+      "issuer": "Microsoft",
+      "date": "April 2023"
+    }
+  ],
+  "professionalDevelopment": [
+    {
+      "title_en": "Development of Leadership Skills",
+      "title_ar": "تنمية المهارات القيادية",
+      "institution": "Consultation & Development Center, UST",
+      "date": "September 2023"
+    },
+    {
+      "title_en": "Diploma in Mobile Maintenance & Programming",
+      "title_ar": "دبلوم صيانة وبرمجة الهواتف المحمولة",
+      "institution": "Science and Life Institution",
+      "date": "Jan 2022"
+    },
+    {
+      "title_en": "Thinking & Problem Solving Skills",
+      "title_ar": "مهارات التفكير وحل المشكلات",
+      "institution": "Consultation & Development Center, UST",
+      "date": "June 2020"
+    }
+  ],
+  "languages": [
+    { 
+      "name": { "en": "Arabic", "ar": "العربية" }, 
+      "level": { "en": "Native", "ar": "اللغة الأم" } 
+    },
+    { 
+      "name": { "en": "English", "ar": "الإنجليزية" }, 
+      "level": { "en": "Professional Working Proficiency", "ar": "إتقان مهني للعمل" } 
+    }
+  ],
+  "cv": "public/cv/Moatasem_Hashem_CV_Updated.pdf"
+}

@@ -1,0 +1,35 @@
+{
+  "groups": [
+    {
+      "id": "networking",
+      "title": { "en": "Networking", "ar": "الشبكات" },
+      "items": ["LAN/WAN", "VLAN", "Wireless Networking", "Routing & Switching", "Cisco", "Mikrotik", "IP Addressing & Subnetting", "RIP", "OSPF", "EIGRP"]
+    },
+    {
+      "id": "security",
+      "title": { "en": "Security", "ar": "الأمن" },
+      "items": ["Firewalls", "VPN (Site-to-Site & Remote Access)", "Network Protection Fundamentals", "Network Security Fundamentals"]
+    },
+    {
+      "id": "systems",
+      "title": { "en": "Systems & Platforms", "ar": "الأنظمة والمنصات" },
+      "items": ["Windows", "Linux (fundamentals)", "Active Directory", "Office 365"]
+    },
+    {
+      "id": "support",
+      "title": { "en": "IT Service Management", "ar": "إدارة خدمات تقنية المعلومات" },
+      "items": ["ITIL Processes", "SLA Compliance", "Incident & Ticket Management", "ManageEngine Service Desk / Service Plus"]
+    },
+    {
+      "id": "tools",
+      "title": { "en": "Tools", "ar": "الأدوات" },
+      "items": ["ManageEngine", "Remote Support Tools", "Microsoft Office / Office 365"]
+    },
+    {
+      "id": "tools",
+      "title": { "en": "Tools", "ar": "الأدوات" },
+      "items": ["ManageEngine", "Remote Support Tools", "Microsoft Office / Office 365"]
+    }
+
+  ]
+}
