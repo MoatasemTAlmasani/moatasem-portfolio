@@ -578,3 +578,82 @@ img, svg { display: block; max-width: 100%; }
 
 /* Focus states */
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-400); outline-offset: 2px; border-radius: var(--radius-sm); }
+/* تأثير الزجاج الحديث للكروت */
+.glass-card {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.2);
+}
+
+/* شريط التمرير المخصص */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* حالة الاتصال المباشرة للمراقبة */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #38bdf8;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+
+
+
+/* الألوان الافتراضية للوضع الداكن */
+:root, [data-theme="dark"] {
+  --bg-primary: #0a0f1d;
+  --text-primary: #f8fafc;
+  --card-bg: #1e293b;
+}
+
+/* ألوان الوضع الفاتح */
+[data-theme="light"] {
+  --bg-primary: #f1f5f9;
+  --text-primary: #0f172a;
+  --card-bg: #ffffff;
+}
+
+/* تطبيق الألوان على الخلفية والنصوص */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

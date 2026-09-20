@@ -20,61 +20,150 @@
       "en": "Results-driven Technical Support Specialist and detail-oriented Network Engineer with 3 years of experience delivering Tier 1–3 support in fast-paced IT environments. Skilled in troubleshooting hardware, software, and network issues, managing service requests, and ensuring high customer satisfaction through effective communication and problem-solving.",
       "ar": "أخصائي دعم فني ومهندس شبكات يهتم بالتفاصيل، ولديه خبرة مهنية لمدة 3 سنوات في تقديم دعم من المستوى الأول إلى الثالث ضمن بيئات تقنية سريعة. أمتلك خبرة في استكشاف أعطال الأجهزة والبرمجيات والشبكات، وإدارة طلبات الخدمة، وتحسين رضا المستخدمين من خلال التواصل الفعال وحل المشكلات."
     },
-    "location": { "en": "Sana'a, Yemen", "ar": "صنعاء، اليمن" }
+    "location": { 
+      "en": "Sana'a, Yemen", 
+      "ar": "صنعاء، اليمن" 
+    }
   },
   "contact": {
     "phone": "+967 771 357 631",
     "email": "moatasem.almasani@gmail.com",
-    "linkedin": "https://linkedin.com/in/moatasem-almasani-66b274234"
+    "linkedin": "https://linkedin.com/in/moatasem-almasani-66b274234",
+    "github": "https://github.com/moatasem-almasani"
   },
   "education": [
     {
-      "degree": { "en": "Bachelor's Degree, Information Technology — Excellent with Honor", "ar": "بكالوريوس تقنية المعلومات — ممتاز مع مرتبة الشرف" },
-      "institution": { "en": "University of Science and Technology", "ar": "جامعة العلوم والتكنولوجيا" },
-      "location": { "en": "Sana'a, Yemen", "ar": "صنعاء، اليمن" },
-      "date": "June 2023"
+      "degree": { 
+        "en": "Bachelor's Degree, Information Technology — Excellent with Honor", 
+        "ar": "بكالوريوس تقنية المعلومات — ممتاز مع مرتبة الشرف" 
+      },
+      "institution": { 
+        "en": "University of Science and Technology", 
+        "ar": "جامعة العلوم والتكنولوجيا" 
+      },
+      "location": { 
+        "en": "Sana'a, Yemen", 
+        "ar": "صنعاء، اليمن" 
+      },
+      "date": "2019 – 2023"
     },
     {
-      "degree": { "en": "Diploma, Secretarial and Business Correspondence", "ar": "دبلوم السكرتارية والمراسلات التجارية" },
-      "institution": { "en": "Ideal Modern Institute", "ar": "المعهد المثالي الحديث" },
-      "location": { "en": "Taiz, Yemen", "ar": "تعز، اليمن" },
-      "date": "September 2018 – September 2019"
+      "degree": { 
+        "en": "Diploma, Secretarial and Business Correspondence", 
+        "ar": "دبلوم السكرتارية والمراسلات التجارية" 
+      },
+      "institution": { 
+        "en": "Ideal Modern Institute", 
+        "ar": "المعهد المثالي الحديث" 
+      },
+      "location": { 
+        "en": "Taiz, Yemen", 
+        "ar": "تعز، اليمن" 
+      },
+      "date": "Sep 2018 – Sep 2019"
     },
     {
-      "degree": { "en": "Diploma, English Language", "ar": "دبلوم اللغة الإنجليزية" },
-      "institution": { "en": "Ideal Modern Institute", "ar": "المعهد المثالي الحديث" },
-      "location": { "en": "Taiz, Yemen", "ar": "تعز، اليمن" },
-      "date": "September 2017 – September 2018"
+      "degree": { 
+        "en": "Diploma, English Language", 
+        "ar": "دبلوم اللغة الإنجليزية" 
+      },
+      "institution": { 
+        "en": "Ideal Modern Institute", 
+        "ar": "المعهد المثالي الحديث" 
+      },
+      "location": { 
+        "en": "Taiz, Yemen", 
+        "ar": "تعز، اليمن" 
+      },
+      "date": "Sep 2017 – Sep 2018"
     }
   ],
   "certifications": [
-    "PMP — Planning and Project Control Essential | Coursera | July 2026",
-    "ITIL Foundation | Institute of Banking Studies | November 2025",
-    "Ethical Hacking Essentials | Coursera | September 2025",
-    "FortiGate Administrator | Coursera | September 2025",
-    "Introduction to Microsoft Azure Services | Coursera | January 2025",
-    "Excel Basics for Data Analysis | Coursera | November 2025",
-    "IBM IT Scrum Master (Diploma) | IBM via Coursera | April 2024",
-    "Google IT Support (Diploma) | Google | December 2023",
-    "FCA — Fortinet Certified Associate | Fortinet | November 2023",
-    "FCF — Fortinet Certified Fundamentals | Fortinet | October 2023",
-    "Oracle Cloud Data Management | Oracle | September 2023",
-    "CCNA — Cisco Certified Network Associate | Cisco Networking Academy | January – April 2023",
-    "MCSA — Microsoft Certified Solutions Associate | Microsoft | July 2021 – April 2023",
-    "Introduction to Cybersecurity | Cisco Networking Academy | August 2022",
-    "Introduction to Internet of Things | Cisco Networking Academy | September 2022",
-    "ICDL — International Computer Driving License | University Computer Center | February – April 2021"
+    {
+      "title": "PMP — Planning and Project Control Essential",
+      "issuer": "Coursera",
+      "date": "July 2026"
+    },
+    {
+      "title": "ITIL Foundation v4",
+      "issuer": "Institute of Banking Studies",
+      "date": "November 2025"
+    },
+    {
+      "title": "Ethical Hacking Essentials",
+      "issuer": "Coursera",
+      "date": "September 2025"
+    },
+    {
+      "title": "FortiGate Administrator",
+      "issuer": "Coursera",
+      "date": "September 2025"
+    },
+    {
+      "title": "Introduction to Microsoft Azure Services",
+      "issuer": "Coursera",
+      "date": "January 2025"
+    },
+    {
+      "title": "IBM IT Scrum Master Diploma",
+      "issuer": "IBM via Coursera",
+      "date": "April 2024"
+    },
+    {
+      "title": "Google IT Support Professional Certificate",
+      "issuer": "Google",
+      "date": "December 2023"
+    },
+    {
+      "title": "FCA — Fortinet Certified Associate",
+      "issuer": "Fortinet",
+      "date": "November 2023"
+    },
+    {
+      "title": "FCF — Fortinet Certified Fundamentals",
+      "issuer": "Fortinet",
+      "date": "October 2023"
+    },
+    {
+      "title": "CCNA — Cisco Certified Network Associate",
+      "issuer": "Cisco Networking Academy",
+      "date": "April 2023"
+    },
+    {
+      "title": "MCSA — Microsoft Certified Solutions Associate",
+      "issuer": "Microsoft",
+      "date": "April 2023"
+    }
   ],
   "professionalDevelopment": [
-    "Development of Leadership Skills | Consultation & Development Center, UST | September 2023",
-    "Diploma, Mobile Maintenance & Programming | Science and Life Institution | November 2021 – January 2022",
-    "Thinking Skills | Consultation & Development Center, UST | June 2020",
-    "Communication Skills | Consultation & Development Center, UST | June 2020",
-    "Accounting (A) | Ideal Modern Institute | November 2019"
+    {
+      "title_en": "Development of Leadership Skills",
+      "title_ar": "تنمية المهارات القيادية",
+      "institution": "Consultation & Development Center, UST",
+      "date": "September 2023"
+    },
+    {
+      "title_en": "Diploma in Mobile Maintenance & Programming",
+      "title_ar": "دبلوم صيانة وبرمجة الهواتف المحمولة",
+      "institution": "Science and Life Institution",
+      "date": "Jan 2022"
+    },
+    {
+      "title_en": "Thinking & Problem Solving Skills",
+      "title_ar": "مهارات التفكير وحل المشكلات",
+      "institution": "Consultation & Development Center, UST",
+      "date": "June 2020"
+    }
   ],
   "languages": [
-    { "name": { "en": "Arabic", "ar": "العربية" }, "level": { "en": "Native", "ar": "اللغة الأم" } },
-    { "name": { "en": "English", "ar": "الإنجليزية" }, "level": { "en": "Professional Working Proficiency", "ar": "إتقان مهني للعمل" } }
+    { 
+      "name": { "en": "Arabic", "ar": "العربية" }, 
+      "level": { "en": "Native", "ar": "اللغة الأم" } 
+    },
+    { 
+      "name": { "en": "English", "ar": "الإنجليزية" }, 
+      "level": { "en": "Professional Working Proficiency", "ar": "إتقان مهني للعمل" } 
+    }
   ],
   "cv": "public/cv/Moatasem_Hashem_CV_Updated.pdf"
 }

@@ -24,6 +24,12 @@
       "id": "tools",
       "title": { "en": "Tools", "ar": "الأدوات" },
       "items": ["ManageEngine", "Remote Support Tools", "Microsoft Office / Office 365"]
+    },
+    {
+      "id": "tools",
+      "title": { "en": "Tools", "ar": "الأدوات" },
+      "items": ["ManageEngine", "Remote Support Tools", "Microsoft Office / Office 365"]
     }
+
   ]
 }

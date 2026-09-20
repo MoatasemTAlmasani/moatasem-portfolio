@@ -2,47 +2,87 @@
   "nodes": [
     {
       "id": "enterprise-network",
-      "title": { "en": "Enterprise Network Design", "ar": "تصميم شبكة مؤسسات" },
-      "type": { "en": "Learning / Design Project", "ar": "مشروع تعليمي / تصميمي" },
+      "title": { 
+        "en": "Enterprise Network Design", 
+        "ar": "تصميم شبكة المؤسسات" 
+      },
+      "type": { 
+        "en": "Learning / Design Project", 
+        "ar": "مشروع تعليمي / تصميمي" 
+      },
       "description": {
         "en": "Multi-floor enterprise network design using Core, Distribution, and Access layers, VLAN segmentation, inter-VLAN routing, redundancy, Internet connectivity, and site-to-administration connectivity.",
         "ar": "تصميم شبكة مؤسسية متعددة الطوابق باستخدام طبقات Core وDistribution وAccess، مع تقسيم VLAN وInter-VLAN Routing والتكرار والاتصال بالإنترنت وربط الموقع الإداري."
       },
+      "technologies": ["Cisco IOS", "VLANs", "Inter-VLAN Routing", "HSRP", "STP", "GNS3"],
+      "metrics": "High Availability & Multi-Tier Architecture",
       "parent": "core",
-      "area": "network"
+      "area": "network",
+      "status": "completed",
+      "icon": "network-wired"
     },
     {
       "id": "wan-mpls",
-      "title": { "en": "WAN & Branch Connectivity", "ar": "اتصال WAN وربط الفروع" },
-      "type": { "en": "Learning / Lab Project", "ar": "مشروع تعليمي / مختبري" },
+      "title": { 
+        "en": "WAN & Branch Connectivity", 
+        "ar": "اتصال WAN وربط الفروع" 
+      },
+      "type": { 
+        "en": "Learning / Lab Project", 
+        "ar": "مشروع تعليمي / مختبري" 
+      },
       "description": {
         "en": "Studying and designing enterprise WAN connectivity using MPLS concepts including PE/P routers, LSP, LDP, VRF, RD/RT, and branch-to-HQ communication.",
         "ar": "دراسة وتصميم اتصال WAN للمؤسسات باستخدام مفاهيم MPLS، بما في ذلك PE/P وLSP وLDP وVRF وRD/RT وربط الفروع بالمقر الرئيسي."
       },
+      "technologies": ["MPLS", "BGP", "OSPF", "VRF", "LDP", "EVE-NG"],
+      "metrics": "Multi-Site Secure Routing",
       "parent": "wan",
-      "area": "network"
+      "area": "network",
+      "status": "completed",
+      "icon": "globe"
     },
     {
       "id": "security-lab",
-      "title": { "en": "Network Security Lab", "ar": "مختبر أمن الشبكات" },
-      "type": { "en": "Lab Project", "ar": "مشروع مختبري" },
+      "title": { 
+        "en": "Network Security Lab", 
+        "ar": "مختبر أمن الشبكات" 
+      },
+      "type": { 
+        "en": "Lab Project", 
+        "ar": "مشروع مختبري" 
+      },
       "description": {
         "en": "Hands-on learning around firewalls, VPN configuration (site-to-site and remote access), network segmentation, and security troubleshooting.",
         "ar": "تدريب عملي على الجدران النارية وتهيئة VPN (Site-to-Site وRemote Access) وتقسيم الشبكات واستكشاف أعطال الأمن."
       },
+      "technologies": ["Fortinet FortiGate", "IPsec VPN", "SSL VPN", "NAT", "Firewall Policies"],
+      "metrics": "Encrypted Tunnels & Perimeter Defense",
       "parent": "firewall",
-      "area": "security"
+      "area": "security",
+      "status": "active",
+      "icon": "shield-alt"
     },
     {
       "id": "ticketing",
-      "title": { "en": "IT Service Desk Operations", "ar": "عمليات مكتب خدمة تقنية المعلومات" },
-      "type": { "en": "Professional Experience", "ar": "خبرة مهنية" },
+      "title": { 
+        "en": "IT Service Desk Operations", 
+        "ar": "عمليات مكتب خدمة تقنية المعلومات" 
+      },
+      "type": { 
+        "en": "Professional Experience", 
+        "ar": "خبرة مهنية" 
+      },
       "description": {
         "en": "Managing incidents and service requests via ManageEngine Service Plus, ensuring SLA compliance, documenting solutions, and escalating complex issues to Tier 2/3 teams.",
         "ar": "إدارة الحوادث وطلبات الخدمة عبر ManageEngine Service Plus، وضمان الالتزام باتفاقيات مستوى الخدمة، وتوثيق الحلول، وتصعيد المشكلات المعقدة إلى فرق الدعم المتقدمة."
       },
+      "technologies": ["ManageEngine ServiceDesk", "ITIL v4", "SLA Management", "Active Directory", "Ticketing"],
+      "metrics": "Tier 1-3 Support & High SLA Compliance",
       "parent": "access",
-      "area": "support"
+      "area": "support",
+      "status": "operational",
+      "icon": "headset"
     }
   ]
 }

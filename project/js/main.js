@@ -1,5 +1,5 @@
 /* ============================================
-   MAIN.JS — Data loading, rendering, terminal
+   MAIN.JS — Data rendering, terminal & theme
    ============================================ */
 
 const SVG_ICONS = {
@@ -8,14 +8,15 @@ const SVG_ICONS = {
   systems: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><circle cx="7" cy="7" r="1" fill="currentColor"/><circle cx="7" cy="17" r="1" fill="currentColor"/></svg>',
   support: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 0 1 16 0v6a2 2 0 0 1-2 2h-1v-6h3M4 12v6a2 2 0 0 0 2 2h1v-6H4"/></svg>',
   tools: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.4-2.4z"/></svg>',
-  building: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="7"/><line x1="15" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="9" y2="11"/><line x1="15" y1="15" x2="15" y2="15"/><line x1="18" y1="15" x2="18" y2="15"/></svg>',
+  building: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="7"/><line x1="15" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="9" y2="11"/><line x1="18" y1="15" x2="18" y2="15"/></svg>',
   globe: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>',
   shield: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg>',
   headset: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2" y="14" width="4" height="6" rx="1"/><rect x="18" y="14" width="4" height="6" rx="1"/><path d="M20 20a4 4 0 0 1-4 4h-2"/></svg>',
   graduation: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg>',
   phone: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
   mail: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
-  linkedin: '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>'
+  linkedin: '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>',
+  cert: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15l-2 5l3-2l3 2l-2-5"/><circle cx="12" cy="9" r="6"/></svg>'
 };
 
 const SKILL_ICONS = { networking:'network', security:'security', systems:'systems', support:'support', tools:'tools' };
@@ -23,62 +24,69 @@ const SKILL_ICONS = { networking:'network', security:'security', systems:'system
 const App = {
   data: {},
 
-  async init() {
-    // دالة آمنة لجلب البيانات لمنع توقف باقي الأجزاء في حال فشل أي ملف
-    const loadJson = async (path) => {
-      try {
-        const res = await fetch(path);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return await res.json();
-      } catch (err) {
-        console.error(`فشل تحميل الملف (${path}):`, err);
-        return null;
-      }
-    };
-
+  init() {
     try {
-      const [profile, skills, experience, projects] = await Promise.all([
-        loadJson('./data/profile.json'),
-        loadJson('./data/skills.json'),
-        loadJson('./data/experience.json'),
-        loadJson('./data/projects.json')
-      ]);
-
-      this.data = { profile, skills, experience, projects };
-
-      // تشغيل الرسم دائماً للأجزاء المتوفرة
-      if (this.data.skills) this.renderSkills();
-      if (this.data.experience) this.renderExperience();
-      if (this.data.projects) this.renderProjects();
-      if (this.data.profile) {
-        this.renderEducation();
-        this.renderContact();
-        this.renderFooter();
+      if (typeof SITE_DATA !== 'undefined') {
+        this.data = SITE_DATA;
+      } else {
+        console.error('الملف data.js غير محمل أو المتغير SITE_DATA غير موجود!');
+        return;
       }
 
-      // تفعيل التأثيرات والحركات والتنقل دائماً
+      this.renderAll();
       this.initReveal();
       this.initTerminal();
 
       window.addEventListener('languagechange', () => {
-        if (this.data.skills) this.renderSkills();
-        if (this.data.experience) this.renderExperience();
-        if (this.data.projects) this.renderProjects();
-        if (this.data.profile) {
-          this.renderEducation();
-          this.renderContact();
-          this.renderFooter();
-        }
+        this.renderAll();
         this.initTerminal();
       });
 
     } catch (err) {
-      console.error('خطأ عام أثناء التهيئة:', err);
+      console.error('خطأ أثناء تهيئة التطبيق:', err);
     }
   },
 
-  lang() { return (window.Language && Language.current) ? Language.current : 'en'; },
-  tr(obj) { return obj ? (obj[this.lang()] || obj.en || '') : ''; },
+  renderAll() {
+    if (this.data.profile) {
+      this.renderHeader();
+      this.renderEducation();
+      this.renderCertifications();
+      this.renderContact();
+      this.renderFooter();
+    }
+    if (this.data.skills) this.renderSkills();
+    if (this.data.experience) this.renderExperience();
+    if (this.data.projects) this.renderProjects();
+  },
+
+  lang() { 
+    return (window.Language && Language.current) ? Language.current : 'en'; 
+  },
+
+  tr(obj) { 
+    if (!obj) return '';
+    if (typeof obj === 'string') return obj;
+    return obj[this.lang()] || obj.en || ''; 
+  },
+
+  renderHeader() {
+    if (!this.data.profile || !this.data.profile.identity) return;
+    const id = this.data.profile.identity;
+    
+    // مطابقة العناصر بواسطة الكلاسات أو IDs المتاحة في index.html
+    const nameEl = document.querySelector('.hero-name') || document.getElementById('hero-name');
+    const titleEl = document.querySelector('.hero-title-primary') || document.getElementById('hero-title');
+    const secTitleEl = document.querySelector('.hero-title-secondary');
+    const taglineEl = document.querySelector('.hero-tagline') || document.getElementById('hero-tagline');
+    const summaryEl = document.querySelector('.hero-summary') || document.getElementById('hero-summary');
+
+    if (nameEl) nameEl.textContent = this.tr(id.name);
+    if (titleEl) titleEl.textContent = this.tr(id.headline);
+    if (secTitleEl && id.secondaryTitle) secTitleEl.textContent = this.tr(id.secondaryTitle);
+    if (taglineEl) taglineEl.textContent = this.tr(id.tagline);
+    if (summaryEl) summaryEl.textContent = this.tr(id.summary);
+  },
 
   renderSkills() {
     const container = document.getElementById('skills-map');
@@ -127,6 +135,19 @@ const App = {
       </div>`).join('');
   },
 
+  renderCertifications() {
+    const container = document.getElementById('certifications-grid');
+    if (!container || !this.data.profile || !this.data.profile.certifications) return;
+    container.innerHTML = this.data.profile.certifications.map(cert => `
+      <div class="cert-card">
+        <div class="cert-icon">${SVG_ICONS.cert}</div>
+        <div class="cert-info">
+          <h3 class="cert-title">${cert.title}</h3>
+          <p class="cert-issuer">${cert.issuer} — <span class="cert-date">${cert.date}</span></p>
+        </div>
+      </div>`).join('');
+  },
+
   renderEducation() {
     const container = document.getElementById('education-list');
     if (!container || !this.data.profile || !this.data.profile.education) return;
@@ -172,7 +193,14 @@ const App = {
         <a href="tel:${c.phone ? c.phone.replace(/\s/g, '') : ''}" aria-label="Phone">${SVG_ICONS.phone}</a>`;
     }
     const cp = document.getElementById('footer-copyright');
-    if (cp && window.Language) cp.textContent = Language.t('footer.copyright').replace('{year}', new Date().getFullYear());
+    if (cp) {
+      const year = new Date().getFullYear();
+      if (window.Language && typeof Language.t === 'function') {
+        cp.textContent = Language.t('footer.copyright').replace('{year}', year);
+      } else {
+        cp.textContent = `© ${year} Moatasem. All rights reserved.`;
+      }
+    }
   },
 
   initReveal() {
@@ -189,27 +217,112 @@ const App = {
 
   initTerminal() {
     const body = document.getElementById('noc-terminal-body');
-    if (!body || !window.Language) return;
-    const lines = Language.t('terminal');
-    if (!lines) return;
-    body.innerHTML = '';
+    if (!body) return;
+    
+    let lines = [];
+    if (window.Language && typeof Language.t === 'function') {
+      lines = Language.t('terminal');
+    }
+    
+    if (!lines || !Array.isArray(lines)) {
+      lines = [
+        "System initialization sequence completed.",
+        "Status: Network Operational.",
+        "Ready for administrative commands."
+      ];
+    }
+
+    const outputContainer = document.getElementById('terminal-output') || body;
+    outputContainer.innerHTML = '';
+
     let index = 0;
     const showLine = () => {
       if (index >= lines.length) {
-        body.innerHTML += '<div class="noc-line"><span class="noc-prompt">&gt;</span> <span class="noc-ok">&#9679;</span> <span class="noc-cursor"></span></div>';
         return;
       }
       const line = lines[index];
       const div = document.createElement('div');
       div.className = 'noc-line';
       div.innerHTML = `<span class="noc-prompt">&gt;</span> ${line}`;
-      body.appendChild(div);
+      outputContainer.appendChild(div);
       index++;
-      setTimeout(showLine, 600);
+      setTimeout(showLine, 400);
     };
-    setTimeout(showLine, 500);
+    setTimeout(showLine, 300);
   }
 };
 
 window.App = App;
 document.addEventListener('DOMContentLoaded', () => App.init());
+
+// --- إدارة الوضع الداكن والفاتح (Dark / Light Mode) ---
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const htmlElement = document.documentElement;
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+htmlElement.setAttribute('data-theme', savedTheme);
+updateThemeIcon(savedTheme);
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    htmlElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+  });
+}
+
+function updateThemeIcon(theme) {
+  if (!themeIcon) return;
+  if (theme === 'light') {
+    themeIcon.className = 'fas fa-sun';
+  } else {
+    themeIcon.className = 'fas fa-moon';
+  }
+}
+
+
+/* ============================================
+   THEME TOGGLE — Dark / Light Mode Switcher
+   ============================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const htmlElement = document.documentElement;
+
+  // 1. جلب الوضع المحفوظ أو اعتماده كـ dark بشكل افتراضي
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  htmlElement.setAttribute('data-theme', savedTheme);
+  updateThemeIcon(savedTheme);
+
+  // 2. ربط حدث الضغط على الزر
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const currentTheme = htmlElement.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      // تطبيق الثيم الجديد وحفظه في LocalStorage
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+
+      // تحديث الأيقونة
+      updateThemeIcon(newTheme);
+    });
+  }
+
+  // دالة لتحديث شكل الأيقونة (شمس / قمر)
+  function updateThemeIcon(theme) {
+    if (!themeIcon) return;
+    if (theme === 'light') {
+      themeIcon.className = 'fas fa-sun';
+    } else {
+      themeIcon.className = 'fas fa-moon';
+    }
+  }
+});

@@ -12,14 +12,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/network.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   <title>Moatasem Tareq Mohammed Hashem | Network Engineer</title>
-  <meta property="og:image" content="https://bolt.new/static/og_default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
 </head>
 <body>
   <!-- Skip link -->
@@ -42,11 +40,17 @@
         <li role="none"><a href="#skills" class="nav-link" data-nav="skills" data-i18n="nav.skills" role="menuitem">Skills</a></li>
         <li role="none"><a href="#experience" class="nav-link" data-nav="experience" data-i18n="nav.experience" role="menuitem">Experience</a></li>
         <li role="none"><a href="#projects" class="nav-link" data-nav="projects" data-i18n="nav.projects" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#certifications" class="nav-link" data-nav="certifications" data-i18n="nav.certifications" role="menuitem">Certifications</a></li>
         <li role="none"><a href="#troubleshooting" class="nav-link" data-nav="troubleshooting" data-i18n="nav.troubleshooting" role="menuitem">Troubleshooting</a></li>
         <li role="none"><a href="#contact" class="nav-link" data-nav="contact" data-i18n="nav.contact" role="menuitem">Contact</a></li>
       </ul>
 
       <div class="nav-actions">
+        <!-- زر التبديل بين الوضع الداكن والفاتح مع ربط الحدث مباشرة -->
+        <button type="button" class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+
         <div class="lang-switcher" role="group" aria-label="Language selector">
           <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
           <span class="lang-sep" aria-hidden="true">|</span>
@@ -88,7 +92,6 @@
         </div>
 
         <div class="hero-visual" aria-hidden="false" aria-label="Network topology visualization">
-          <!-- Network topology SVG -->
           <div class="network-viz-container">
             <svg id="hero-topology" class="network-topology" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="topology-title">
               <title id="topology-title">Network Visualization</title>
@@ -99,10 +102,8 @@
                 </linearGradient>
                 <filter id="nodeGlow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
               </defs>
-              <!-- connections drawn by JS -->
               <g id="topology-links"></g>
               <g id="topology-nodes"></g>
-              <!-- packets drawn by JS -->
               <g id="topology-packets"></g>
             </svg>
 
@@ -121,10 +122,21 @@
               </ul>
             </div>
 
-            <!-- NOC terminal -->
+            <!-- NOC Terminal (Interactive Console) -->
             <div class="noc-terminal" role="region" aria-label="Network Operations Center terminal">
-              <div class="noc-terminal-bar"><span class="noc-dot noc-dot-r"></span><span class="noc-dot noc-dot-y"></span><span class="noc-dot noc-dot-g"></span></div>
-              <div class="noc-terminal-body" id="noc-terminal-body"></div>
+              <div class="noc-terminal-bar">
+                <span class="noc-dot noc-dot-r"></span>
+                <span class="noc-dot noc-dot-y"></span>
+                <span class="noc-dot noc-dot-g"></span>
+                <span class="terminal-title">admin@net-core:~</span>
+              </div>
+              <div class="noc-terminal-body" id="noc-terminal-body">
+                <div id="terminal-output"></div>
+                <div class="terminal-input-line">
+                  <span class="prompt">admin@net-core:~$</span>
+                  <input type="text" id="terminal-input" placeholder="Type 'help'..." autocomplete="off" spellcheck="false" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -161,7 +173,7 @@
                 </div>
                 <div class="arch-branch">
                   <div class="arch-branch-title">Networking</div>
-                  <ul><li>Routing &amp; Switching</li><li>VLAN</li><li>OSPF / EIGRP / RIP</li><li>IP Subnetting</li></ul>
+                  <ul><li>Routing &amp; Switching</li><li>VLAN</li><li>OSPF / EIGRP / BGP</li><li>IP Subnetting</li></ul>
                 </div>
                 <div class="arch-branch">
                   <div class="arch-branch-title">Support</div>
@@ -209,6 +221,19 @@
         </div>
         <div class="projects-network reveal" id="projects-network" aria-label="Projects network">
           <!-- Filled by JS from projects.json -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section id="certifications" class="section section-certifications">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label" data-i18n="certifications.label">Certifications</span>
+          <h2 class="section-title" data-i18n="certifications.title">Certifications & Credentials</h2>
+        </div>
+        <div class="certifications-grid reveal" id="certifications-grid" aria-label="Certifications">
+          <!-- Filled by JS from profile.json -->
         </div>
       </div>
     </section>
@@ -322,9 +347,38 @@
   <div id="node-tooltip" class="node-tooltip" role="tooltip" hidden></div>
 
   <!-- Scripts -->
+  <script src="js/data.js"></script>
   <script src="js/language.js"></script>
   <script src="js/network-animation.js"></script>
   <script src="js/navigation.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- Script مباشر ومستقل لتنسيق وتبديل الوضع الداكن والفاتح -->
+  <script>
+    function updateThemeUI(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      var icon = document.getElementById('theme-icon');
+      if (icon) {
+        if (theme === 'light') {
+          icon.className = 'fas fa-sun';
+        } else {
+          icon.className = 'fas fa-moon';
+        }
+      }
+    }
+
+    function toggleTheme() {
+      var currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', newTheme);
+      updateThemeUI(newTheme);
+    }
+
+    // تطبيق الثيم المحفوظ تلقائياً عند فتح الصفحة
+    (function initTheme() {
+      var savedTheme = localStorage.getItem('theme') || 'dark';
+      updateThemeUI(savedTheme);
+    })();
+  </script>
 </body>
 </html>
