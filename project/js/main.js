@@ -8,7 +8,7 @@ const SVG_ICONS = {
   systems: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><circle cx="7" cy="7" r="1" fill="currentColor"/><circle cx="7" cy="17" r="1" fill="currentColor"/></svg>',
   support: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 0 1 16 0v6a2 2 0 0 1-2 2h-1v-6h3M4 12v6a2 2 0 0 0 2 2h1v-6H4"/></svg>',
   tools: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.4-2.4z"/></svg>',
-  building: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="7"/><line x1="15" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="9" y2="11"/><line x1="15" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="9" y2="15"/><line x1="15" y1="15" x2="15" y2="15"/></svg>',
+  building: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="7"/><line x1="15" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="9" y2="11"/><line x1="15" y1="15" x2="15" y2="15"/><line x1="18" y1="15" x2="18" y2="15"/></svg>',
   globe: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>',
   shield: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg>',
   headset: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2" y="14" width="4" height="6" rx="1"/><rect x="18" y="14" width="4" height="6" rx="1"/><path d="M20 20a4 4 0 0 1-4 4h-2"/></svg>',
@@ -24,37 +24,65 @@ const App = {
   data: {},
 
   async init() {
+    // دالة آمنة لجلب البيانات لمنع توقف باقي الأجزاء في حال فشل أي ملف
+    const loadJson = async (path) => {
+      try {
+        const res = await fetch(path);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.json();
+      } catch (err) {
+        console.error(`فشل تحميل الملف (${path}):`, err);
+        return null;
+      }
+    };
+
     try {
       const [profile, skills, experience, projects] = await Promise.all([
-        fetch('data/profile.json').then(r => r.json()),
-        fetch('data/skills.json').then(r => r.json()).catch(err =>(console.error('skills error:',err),{})),
-        fetch('data/experience.json').then(r => r.json()),
-        fetch('data/projects.json').then(r => r.json())
+        loadJson('./data/profile.json'),
+        loadJson('./data/skills.json'),
+        loadJson('./data/experience.json'),
+        loadJson('./data/projects.json')
       ]);
+
       this.data = { profile, skills, experience, projects };
-      this.renderSkills();
-      this.renderExperience();
-      this.renderProjects();
-      this.renderEducation();
-      this.renderContact();
-      this.renderFooter();
+
+      // تشغيل الرسم دائماً للأجزاء المتوفرة
+      if (this.data.skills) this.renderSkills();
+      if (this.data.experience) this.renderExperience();
+      if (this.data.projects) this.renderProjects();
+      if (this.data.profile) {
+        this.renderEducation();
+        this.renderContact();
+        this.renderFooter();
+      }
+
+      // تفعيل التأثيرات والحركات والتنقل دائماً
       this.initReveal();
       this.initTerminal();
+
       window.addEventListener('languagechange', () => {
-        this.renderSkills(); this.renderExperience(); this.renderProjects(); this.renderEducation(); this.renderContact(); this.renderFooter();
+        if (this.data.skills) this.renderSkills();
+        if (this.data.experience) this.renderExperience();
+        if (this.data.projects) this.renderProjects();
+        if (this.data.profile) {
+          this.renderEducation();
+          this.renderContact();
+          this.renderFooter();
+        }
         this.initTerminal();
       });
+
     } catch (err) {
-      console.error('Failed to load data:', err);
+      console.error('خطأ عام أثناء التهيئة:', err);
     }
   },
 
-  lang() { return Language.current; },
-  tr(obj) { return obj ? (obj[this.lang()] || obj.en) : ''; },
+  lang() { return (window.Language && Language.current) ? Language.current : 'en'; },
+  tr(obj) { return obj ? (obj[this.lang()] || obj.en || '') : ''; },
 
   renderSkills() {
     const container = document.getElementById('skills-map');
-    if (!container) return;
+    if (!container || !this.data.skills || !this.data.skills.groups) return;
     container.innerHTML = this.data.skills.groups.map(group => {
       const iconKey = SKILL_ICONS[group.id] || 'tools';
       return `<div class="skill-group">
@@ -69,7 +97,7 @@ const App = {
 
   renderExperience() {
     const container = document.getElementById('experience-timeline');
-    if (!container) return;
+    if (!container || !this.data.experience) return;
     container.innerHTML = this.data.experience.map(job => `
       <div class="timeline-item">
         <div class="timeline-card">
@@ -77,14 +105,14 @@ const App = {
           <div class="timeline-role">${this.tr(job.role)}</div>
           <div class="timeline-company">${this.tr(job.company)}</div>
           <div class="timeline-date">${this.tr(job.date)} · ${this.tr(job.location)}</div>
-          <ul class="timeline-items">${job.items[this.lang()].map(item => `<li>${item}</li>`).join('')}</ul>
+          <ul class="timeline-items">${(job.items && job.items[this.lang()]) ? job.items[this.lang()].map(item => `<li>${item}</li>`).join('') : ''}</ul>
         </div>
       </div>`).join('');
   },
 
   renderProjects() {
     const container = document.getElementById('projects-network');
-    if (!container) return;
+    if (!container || !this.data.projects || !this.data.projects.nodes) return;
     const areaIcons = { network: 'building', security: 'shield', support: 'headset' };
     container.innerHTML = this.data.projects.nodes.map(node => `
       <div class="project-node">
@@ -101,7 +129,7 @@ const App = {
 
   renderEducation() {
     const container = document.getElementById('education-list');
-    if (!container) return;
+    if (!container || !this.data.profile || !this.data.profile.education) return;
     container.innerHTML = this.data.profile.education.map(edu => `
       <div class="edu-card">
         <div class="edu-icon">${SVG_ICONS.graduation}</div>
@@ -115,11 +143,12 @@ const App = {
   },
 
   renderContact() {
+    if (!this.data.profile || !this.data.profile.contact) return;
     const c = this.data.profile.contact;
     const cards = document.getElementById('contact-cards');
     if (cards) {
       const items = [
-        { label: this.lang() === 'ar' ? 'الهاتف' : 'Phone', value: c.phone, href: `tel:${c.phone.replace(/\s/g, '')}`, icon: SVG_ICONS.phone },
+        { label: this.lang() === 'ar' ? 'الهاتف' : 'Phone', value: c.phone, href: `tel:${c.phone ? c.phone.replace(/\s/g, '') : ''}`, icon: SVG_ICONS.phone },
         { label: this.lang() === 'ar' ? 'البريد' : 'Email', value: c.email, href: `mailto:${c.email}`, icon: SVG_ICONS.mail },
         { label: 'LinkedIn', value: 'LinkedIn', href: c.linkedin, icon: SVG_ICONS.linkedin }
       ];
@@ -133,29 +162,36 @@ const App = {
   },
 
   renderFooter() {
+    if (!this.data.profile || !this.data.profile.contact) return;
     const social = document.getElementById('footer-social');
     const c = this.data.profile.contact;
     if (social) {
       social.innerHTML = `
         <a href="${c.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">${SVG_ICONS.linkedin}</a>
         <a href="mailto:${c.email}" aria-label="Email">${SVG_ICONS.mail}</a>
-        <a href="tel:${c.phone.replace(/\s/g, '')}" aria-label="Phone">${SVG_ICONS.phone}</a>`;
+        <a href="tel:${c.phone ? c.phone.replace(/\s/g, '') : ''}" aria-label="Phone">${SVG_ICONS.phone}</a>`;
     }
     const cp = document.getElementById('footer-copyright');
-    if (cp) cp.textContent = Language.t('footer.copyright').replace('{year}', new Date().getFullYear());
+    if (cp && window.Language) cp.textContent = Language.t('footer.copyright').replace('{year}', new Date().getFullYear());
   },
 
   initReveal() {
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+      entries.forEach(entry => { 
+        if (entry.isIntersecting) { 
+          entry.target.classList.add('visible'); 
+          observer.unobserve(entry.target); 
+        } 
+      });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   },
 
   initTerminal() {
     const body = document.getElementById('noc-terminal-body');
-    if (!body) return;
+    if (!body || !window.Language) return;
     const lines = Language.t('terminal');
+    if (!lines) return;
     body.innerHTML = '';
     let index = 0;
     const showLine = () => {
